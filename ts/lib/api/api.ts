@@ -1,5 +1,5 @@
 export class API {
-  public APIAddr = "http://localhost:3080"
+  public APIAddr = "http://localhost:3080";
   async post(url: string, data: any, token?: string) {
     try {
       const res = await fetch(this.APIAddr + url, {
@@ -13,6 +13,8 @@ export class API {
       throw e;
     }
   }
+
+  // url: APIのURLは定義済み
   async get(url: string, token?: string) {
     try {
       const res = await fetch(this.APIAddr + url, {
@@ -25,6 +27,7 @@ export class API {
       throw e;
     }
   }
+
   async put(url: string, body: string, token?: string) {
     try {
       const res = await fetch(this.APIAddr + url, {

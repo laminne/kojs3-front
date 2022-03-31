@@ -1,7 +1,7 @@
 import * as Lib from "./lib/main.js";
 
 Lib.getElementById("login").addEventListener("click", async () => {
-  const Elems:any[] = [
+  const Elems: any[] = [
     Lib.getElementById("name"),
     Lib.getElementById("password"),
   ];
@@ -12,15 +12,15 @@ Lib.getElementById("login").addEventListener("click", async () => {
   const api = new Lib.API();
   const req = {
     name: Elems[0].value,
-    password: Elems[1].value
-  }
-  const token = await api.post("/login", req)
-  if (!token.token){
+    password: Elems[1].value,
+  };
+  const token = await api.post("/login", req);
+  if (!token.token) {
     console.error("tokenがありません");
     return;
-  }else{
-    localStorage.setItem("token", token.token)
+  } else {
+    localStorage.setItem("token", token.token);
   }
   // 成功したらリダイレクト入れる <- どこに飛ばすの？
-
+  document.location.href = "mypage.html";
 });

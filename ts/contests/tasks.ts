@@ -24,7 +24,7 @@ window.onload = async () => {
       contests.innerHTML += `
        <tr>
           <td class="border px-4 py-2">A</td>
-          <td class="border px-4 py-2">${res[i].title}</td>
+          <td class="border px-4 py-2"><a href="task.html?id=${contest.id}&tid=${res[i].id}">${res[i].title}</a></td>
           <td class="border px-4 py-2">${res[i].time_limit}sec</td>
           <td class="border px-4 py-2">${res[i].memory_limit}</td>
           <td class="border px-4 py-2">提出</td>

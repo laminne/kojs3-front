@@ -1,6 +1,6 @@
 export class API {
     constructor() {
-        this.APIAddr = "http://localhost:3080";
+        this.APIAddr = "https://kojs.laminne33569.net:3080";
     }
     async post(url, data, token) {
         try {

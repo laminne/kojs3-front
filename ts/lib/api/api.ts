@@ -16,14 +16,20 @@ export class API {
 
   // url: APIのURLは定義済み
   async get(url: string, token?: string) {
+    let res;
     try {
-      const res = await fetch(this.APIAddr + url, {
+      res = await fetch(this.APIAddr + url, {
         method: "GET",
         headers: API.lib("application/json", token),
       });
+      if (res.status === 400) {
+        throw new ContestNotStartedError();
+      }
       return res.json();
     } catch (e) {
-      console.error(e);
+      if (!res) {
+        throw e;
+      }
       throw e;
     }
   }
@@ -49,8 +55,10 @@ export class API {
       };
     }
     return {
-      authorization: token,
+      authorization: "Bearer " + token,
       "Content-Type": type,
     };
   }
 }
+
+export class ContestNotStartedError extends Error {}

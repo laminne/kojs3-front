@@ -12,13 +12,14 @@ window.onload = async () => {
   const tid = Lib.getParam("tid"); //taskId
   try {
     const res = await api.get("/contests/" + id + "/tasks/" + tid, token); // 問題情報
-    const contest = await api.get("/contests/" + id); // コンテスト情報
+    const contest = await api.get("/contests/" + id, token); // コンテスト情報
     // 情報をパースして表示
     // ToDo: 鯖から帰ってくるjsonと型を合わせる
     Lib.getElementById(
       "contest-title"
     ).innerHTML = `<a href="show.html?id=${contest.id}">${contest.title}</a>`;
     Lib.getElementById("task-name").innerText = res.title;
+    Lib.getElementById("task-area").innerHTML = res.description;
     Lib.getElementById(
       "task-constrains"
     ).innerText = `実行時間制限: ${res.time_limit}sec / メモリ制限: ${res.memory_limit}`;
@@ -26,4 +27,8 @@ window.onload = async () => {
     console.error(e);
     alert("サーバーとの通信に失敗しました");
   }
+
+  Lib.getElementById("submit").addEventListener("click", () => {
+    document.location.href = "submit.html?id=" + id;
+  });
 };

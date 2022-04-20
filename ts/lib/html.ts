@@ -1,4 +1,4 @@
-export function getElementById(arg: string): HTMLElement {
+export function getElementById(arg: string) {
   const e = document.getElementById(arg);
   if (!e) {
     throw new Error("HTMLElementNotFoundError");

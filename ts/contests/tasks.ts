@@ -11,7 +11,7 @@ window.onload = async () => {
   const id = Lib.getParam("id");
   try {
     const res = await api.get("/contests/" + id + "/tasks", token);
-    const contest = await api.get("/contests/" + id);
+    const contest = await api.get("/contests/" + id, token);
     // 情報をパースして表示
     // ToDo: 鯖から帰ってくるjsonと型を合わせる
     const contests = Lib.getElementById("task-list");
@@ -24,7 +24,7 @@ window.onload = async () => {
       contests.innerHTML += `
        <tr>
           <td class="border px-4 py-2">A</td>
-          <td class="border px-4 py-2"><a href="task.html?id=${contest.id}&tid=${res[i].id}">${res[i].title}</a></td>
+          <td class="border px-4 py-2 text-sky-500"><a href="task.html?id=${contest.id}&tid=${res[i].id}">${res[i].title}</a></td>
           <td class="border px-4 py-2">${res[i].time_limit}sec</td>
           <td class="border px-4 py-2">${res[i].memory_limit}</td>
           <td class="border px-4 py-2">提出</td>

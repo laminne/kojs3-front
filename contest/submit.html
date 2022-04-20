@@ -1,10 +1,84 @@
+<!-- コンテスト一覧ページ -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>問題一覧 | Kemomimi Online Judge System</title>
+    <link rel="stylesheet" href="../dist/tailwind.dist.css">
 </head>
-<body>
+<body class="w-screen h-screen m-0">
+<!-- Tailblocks https://raw.githubusercontent.com/mertJF/tailblocks/master/LICENSE -->
+<header class="text-gray-600 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <span class="ml-3 text-xl">Kemomimi Online Judge System</span>
+        </a>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+        </nav>
+        <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            <a href="/login.html">ログイン</a>
+        </button>
+    </div>
+</header>
+<!-- End -->
 
+<main class="w-2/3 h-full mx-auto">
+    <div class="mx-auto">
+        <h2 id="contest-name" class="text-xl"></h2>
+        <h1 class="text-3xl">提出</h1>
+        <div>
+            <label for="lang-type">言語</label>
+            <select name="lang-type" id="lang-type">
+                <option value="c-gcc">C (GCC)</option>
+                <option value="c-clang">C (Clang)</option>
+                <option value="cxx-gxx">C++ (g++)</option>
+                <option value="cxx-clang">C++ (Clang++)</option>
+                <option value="node-js">Node.js</option>
+                <option value="ruby">Ruby (3.0.0)</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="task-id">問題</label>
+            <select name="task-id" id="task-id">
+
+            </select>
+        </div>
+
+        <label for="code-area">コード</label>
+        <textarea id="code-area" class="border"></textarea>
+        <button id="submit" class="bg-indigo-700 text-white py-2 px-4 rounded">提出する</button>
+
+        <div id="submission-status" style="display: none">
+            <h2>提出ステータス</h2>
+            <table class="table-auto">
+                <thead>
+                <tr>
+                    <th class="border px-4 py-2">提出日時</th>
+                    <th class="border px-4 py-2">問題</th>
+                    <th class="border px-4 py-2">言語 / コンパイラタイプ</th>
+                    <th class="border px-4 py-2">結果</th>
+                    <th class="border px-4 py-2">実行時間</th>
+                    <th class="border px-4 py-2">メモリ</th>
+                </tr>
+                </thead>
+                <tbody id="submissions">
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+<span class="bg-amber-500 bg-emerald-500" style="display: none"></span>
+<script src="../js/contests/submit.js" type="module"></script>
 </body>
 </html>
+
+<!--
+
+{"id":"b65b9ae3-7d2d-4175-929d-a52123625481","code":"c2xlZXAgMw==","submited_at":"2022-04-01T05:34:08.172Z","tasksId":"4ae0b2bf-d291-4aff-978e-49503a6f9e9c","response":"W3siVGVzdElEIjoiIiwiRXhpdFN0YXR1cyI6MCwiRHVyYXRpb24iOjAsIlN0YXR1cyI6IkNFIn0seyJUZXN0SUQiOiIiLCJFeGl0U3RhdHVzIjowLCJEdXJhdGlvbiI6MCwiU3RhdHVzIjoiQ0UifSx7IlRlc3RJRCI6IiIsIkV4aXRTdGF0dXMiOjAsIkR1cmF0aW9uIjowLCJTdGF0dXMiOiJDRSJ9XQ==","userId":"374793af-2202-4cdc-b060-6f5865237a71","state":"CE"}
+
+-->

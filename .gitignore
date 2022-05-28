@@ -1,3 +1,4 @@
-dist
+static/dist
 node_modules
-js
+static/js
+.idea
